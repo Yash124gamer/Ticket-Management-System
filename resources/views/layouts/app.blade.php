@@ -18,7 +18,7 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm py-3 sticky-top">       {{-- Nav-Bar is Sticky --}}
             <div class="container">
                 <a class="navbar-brand fs-2 fst-italic" href="{{ url('/') }}">
                     {{ config('app.name', 'Ticket Managment System') }}
@@ -39,20 +39,20 @@
                         @guest
                             @if (Route::has('login'))
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                    <a class="nav-link fs-4 mx-4" href="{{ route('login') }}">{{ __('Login') }}</a>
                                 </li>
                             @endif
 
                             @if (Route::has('register'))
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                    <a class="nav-link fs-4 " href="{{ route('register') }}">{{ __('Register') }}</a>
                                 </li>
                             @endif
-                        @else
-                            <li class="nav-item dropdown">
+                            @else
+                            <li class="nav-item dropdown fs-4">
                                 <div class="row">
-                                    <img class="col-auto" src="user-circle-2.svg" alt="">
-                                    <a id="navbarDropdown" class="col-auto nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    <img class="col-auto me-0 pe-0" src="user-circle-2.svg" alt="">
+                                    <a id="navbarDropdown" class="col-auto nav-link dropdown-toggle px-0 mx-1" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                         {{ Auth::user()->name }}
                                     </a>
                                     <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
