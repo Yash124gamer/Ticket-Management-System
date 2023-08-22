@@ -58,3 +58,20 @@
       </div>
     </div>
   </div>
+
+  @if(session('success'))
+    <div class="alert alert-success" id="successAlert">
+        {{ session('success') }}
+    </div>
+@endif
+
+@if(session('error'))
+    <div class="alert alert-danger" id="successAlert">
+        {{ session('error') }}
+    </div>
+@endif
+    <script>
+      setTimeout(function() {
+          document.getElementById('successAlert').style.display = 'none';
+      }, 2000); // Hide the alert after 3000 milliseconds (3 seconds)
+  </script>
