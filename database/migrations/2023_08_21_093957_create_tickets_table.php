@@ -13,10 +13,10 @@ return new class extends Migration
     {
         Schema::create('tickets', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
+            $table->string('title',100);
             $table->foreignId('Uid')->constrained('users'); // Define the foreign key constraint
-            $table->string('description');
-            $table->string('status');
+            $table->string('description',600);
+            $table->string('status',20);
             $table->timestamps();
             $table->foreignId('category_id')->constrained('categories');
         });
