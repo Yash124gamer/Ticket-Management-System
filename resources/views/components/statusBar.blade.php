@@ -25,29 +25,29 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-            <form>
+          <form action="{{ route('submit.ticket') }}" method="post">
+            @csrf
                 <div class="mb-3">
                     <label for="recipient-name" class="col-form-label fs-5">Title:</label>
-                    <input type="text" class="form-control" id="recipient-name" required>
+                    <input type="text" class="form-control" name="title" id="recipient-name" required>
                 </div>
                 <div class="mb-3">
                     <label for="message-text" class="col-form-label fs-5">Description:</label>
-                    <textarea class="form-control" id="message-text" required></textarea>
+                    <textarea class="form-control" id="message-text" name="description" required></textarea>
                 </div>
                 <div class="mb-3">
                     <label class="col-form-label fs-5 fw-bold">Category:</label>
                     <div class="btn-group " role="group">
-                        <label class="btn btn-custom-outline" onclick="selectCategory('Support')">
-                            <input type="radio" name="category" id="category1" value="Support" checked> Support
+                        <label class="btn btn-custom-outline">
+                            <input type="radio" name="category" id="category1" value="1" checked> Support
                         </label>
-                        <label class="btn btn-custom-outline" onclick="selectCategory('Complaint')">
-                            <input type="radio" name="category" id="category2" value="Complaint"> Complaint
+                        <label class="btn btn-custom-outline">
+                            <input type="radio" name="category" id="category2" value="3"> Complaint
                         </label>
-                        <label class="btn btn-custom-outline" onclick="selectCategory('Feedback')">
-                            <input type="radio" name="category" id="category3" value="Feedback"> Feedback
+                        <label class="btn btn-custom-outline">
+                            <input type="radio" name="category" id="category3" value="2"> Feedback
                         </label>
                     </div>
-                    <input type="hidden" id="selectedCategory" name="selectedCategory">
                 </div>
             </div>
             <div class="modal-footer">
@@ -58,10 +58,3 @@
       </div>
     </div>
   </div>
-  <script>
-    function selectCategory(category) {
-        document.getElementById('selectedCategory').value = category;
-    }
-
-
-</script>
