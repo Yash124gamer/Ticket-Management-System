@@ -1,0 +1,11 @@
+.ticket-card {
+    transition: transform 0.3s ease-in-out, border-left 0.2s ease-in;
+    transition-delay: 120ms;
+}
+
+.ticket-card:hover {
+    border-left: 8px solid teal;
+    cursor: pointer;
+    transform: translateX(20px);
+    border-left-color: teal; /* Change the border color on hover */
+}
