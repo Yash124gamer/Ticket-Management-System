@@ -19,6 +19,9 @@ Route::get('/', function () {
 
 Route::post('/submit-ticket', [App\Http\Controllers\TicketController::class,'store'])->name('submit.ticket');
 
+Route::get('/show-ticket',function(){
+    return view('show-ticket');
+})->name('ticket.show');
 
 Auth::routes();
 
