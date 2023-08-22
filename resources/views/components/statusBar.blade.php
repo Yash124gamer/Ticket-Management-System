@@ -6,11 +6,13 @@
             All Tickets
           </li>
         </ul>
+          @if(auth()->user()->role === 'user')
             <li class="nav-item d-flex align-items-center border border-secondary border-opacity-25 p-1 me-4 rounded-1">
                 <a class="nav-link fs-5 d-flex align-items-center" data-bs-toggle="modal" data-bs-target="#exampleModal" style="cursor: pointer;">
                     <img src="plus-square.svg" alt=""><span class="ms-2">New</span>
                 </a>
             </li>
+          @endif
                 <img src="bell.svg" class="me-4" alt="">
       </div>
     </div>
