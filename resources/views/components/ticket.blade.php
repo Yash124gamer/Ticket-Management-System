@@ -18,7 +18,7 @@
                     Complaint <img src="badge-alert.svg" alt="">
                 </h6>
             @endif
-            <p class="card-text mt-3">{{ $ticket->description }}</p>
+            <p class="card-text mt-3 text-truncate">{{ $ticket->description }}</p>
         </div>
     </div>
 </a>

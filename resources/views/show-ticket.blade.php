@@ -15,7 +15,7 @@ use App\Models\User;
 
 @section('content')
     <div class="container mb-5">
-        <div class="card" style="border-left:solid 8px green">
+        <div class="card" style="border-left: solid 8px {{ $ticket->category_id == 1 ? 'blue' : ($ticket->category_id == 2 ? 'green' : 'red') }}">
             <div class="card-header fs-3 fst-italic">
                 {{ $ticket->title }}
             </div>
@@ -26,14 +26,14 @@ use App\Models\User;
                 @if ($adminPresent)
                     <div data-bs-toggle="modal" data-bs-target="#exampleModal" style="cursor: pointer">Uploaded By-</div>
                 @endif
-                <div style="color:blue">Posted On -: {{ $ticket->created_at }}</div>
+                <div style="color: blue">Posted On -: {{ $ticket->created_at }}</div>
             </div>
         </div>
     </div>
     @if ($adminPresent)
         <x-response />
     @else
-        <x-edit />
+        <x-edit :category="$ticket->category_id" />
     @endif
 @endsection
 

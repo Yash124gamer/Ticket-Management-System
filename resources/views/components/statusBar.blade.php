@@ -38,8 +38,8 @@
                     <textarea class="form-control" id="message-text" name="description" required></textarea>
                 </div>
                 <div class="mb-3">
-                    <label class="col-form-label fs-5 fw-bold">Category:</label>
-                    <div class="btn-group " role="group">
+                    <label class="col-form-label fs-5 fw-bold d-block">Category:</label>
+                    <div class="btn-group" role="group">
                         <label class="btn btn-custom-outline">
                             <input type="radio" name="category" id="category1" value="1" checked> Support
                         </label>
