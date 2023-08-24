@@ -33,7 +33,7 @@ use App\Models\User;
     @if ($adminPresent)
         <x-response />
     @else
-        <x-edit :category="$ticket->category_id" />
+        <x-edit :category="$ticket->category_id" :ticketId="$ticket->id"/>
     @endif
 @endsection
 
