@@ -29,5 +29,18 @@ class TicketController extends Controller
             return redirect()->back()->with('error', 'An error occurred while submitting the ticket.');
         }
     }
+    //function to update Title
+    public function updateTitle(Request $request, $id){
+        $newTitle = $request->input('newTitle');
+        $ticket = Tickets::find($id);
+        if ($ticket) {
+            $ticket->update(['title' => "New Title"]);
+            return response()->json(['success' => true]);
+        }
+    
+        dd("Ticket not found or other error"); // Debugging
+        return response()->json(['success' => false]);
+    }
+    
 
 }
