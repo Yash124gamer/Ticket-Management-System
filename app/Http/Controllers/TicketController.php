@@ -30,11 +30,17 @@ class TicketController extends Controller
         }
     }
     //function to update Title
-    public function updateTitle(Request $request, $id){
-        $newTitle = $request->input('newTitle');
+    public function update(Request $request, $id){
+        $newValue = $request->input('value');
+        $type = $request->input('type');
         $ticket = Tickets::find($id);
         if ($ticket) {
-            $ticket->update(['title' => "New Title"]);
+            if($type == "title")
+                $ticket->update(['title' => $newValue]);
+            if($type == "description")
+                $ticket->update(['description' => $newValue]);
+            if($type == "category")
+                $ticket->update(['category_id' => $newValue]);
             return response()->json(['success' => true]);
         }
     

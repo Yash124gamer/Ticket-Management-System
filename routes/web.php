@@ -26,3 +26,4 @@ Route::get('/show-ticket',function(){
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::post('/update-ticket/{id}', [App\Http\Controllers\TicketController::class, 'update'])->name('update.ticket');
