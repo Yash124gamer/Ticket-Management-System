@@ -73,7 +73,21 @@
                 </div>
             </div>
         </nav>
-
+        @if(session('success'))
+            <div class="alert alert-success" id="successAlert">
+                {{ session('success') }}
+            </div>
+        @endif
+        @if(session('error'))
+            <div class="alert alert-danger" id="successAlert">
+                {{ session('error') }}
+            </div>
+        @endif
+        <script>
+          setTimeout(function() {
+              document.getElementById('successAlert').style.display = 'none';
+          }, 2000); //This will Hide the alert after 2 seconds
+        </script>
         <main class="py-4">
             @yield('content')
         </main>

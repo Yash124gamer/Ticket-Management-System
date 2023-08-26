@@ -41,11 +41,11 @@ class TicketController extends Controller
                 $ticket->update(['description' => $newValue]);
             if($type == "category")
                 $ticket->update(['category_id' => $newValue]);
-            return response()->json(['success' => true]);
+            return redirect()->back()->with('success', 'Ticket Updated successfully');
         }
     
         dd("Ticket not found or other error"); // Debugging
-        return response()->json(['success' => false]);
+            return redirect()->back()->with('error', 'Something Went Wrong');
     }
     
 
