@@ -15,7 +15,7 @@ use App\Models\User;
 
 @section('content')
     <div class="container mb-5">
-        <div class="card" style="border-left: solid 8px {{ $ticket->category_id == 1 ? 'blue' : ($ticket->category_id == 2 ? 'green' : 'red') }}">
+        <div class="card" style="border-left: solid 8px {{ $ticket->category_id == 1 ? 'green' : ($ticket->category_id == 2 ? 'blue' : 'red') }}">
             <div class="card-header fs-3 fst-italic">
                 {{ $ticket->title }}
             </div>
@@ -24,9 +24,13 @@ use App\Models\User;
             </div>
             <div class="card-footer d-flex justify-content-between">
                 @if ($adminPresent)
-                    <div data-bs-toggle="modal" data-bs-target="#exampleModal" style="cursor: pointer">Uploaded By-</div>
+                    <div data-bs-toggle="modal" data-bs-target="#exampleModal" style="cursor: pointer ; color: blue">Uploaded By -: {{ $ticket->created_at }}</div>
+                @else
+                    <div style="color: blue">Posted On -: {{ $ticket->created_at->format('l, M d,  h:i A') }}</div>
                 @endif
-                <div style="color: blue">Posted On -: {{ $ticket->created_at }}</div>
+                @if ($ticket->created_at != $ticket->updated_at )
+                    <div style="color: blue">Updated On -: {{ $ticket->updated_at->format('l, M d,  h:i A') }}</div>
+                @endif
             </div>
         </div>
     </div>
