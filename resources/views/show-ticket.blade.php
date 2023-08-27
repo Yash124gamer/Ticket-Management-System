@@ -41,7 +41,7 @@ use App\Models\User;
         </div>
     </div>
     @if ($adminPresent)
-        <x-response />
+        <x-response :id="$ticket->id" />
     @else
         <x-edit :category="$ticket->category_id" :ticketId="$ticket->id"/>
     @endif
