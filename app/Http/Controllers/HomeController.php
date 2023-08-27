@@ -21,8 +21,10 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
+    public function index(Request $request)
     {
-        return view('home');
+        $paramValue = $request->input('category');
+
+        return view('home', ['paramValue' => $paramValue]);
     }
 }

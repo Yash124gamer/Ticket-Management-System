@@ -1,11 +1,44 @@
 <nav class="navbar navbar-expand-lg bg-body-tertiary py-3 border-bottom border-success border-3">
     <div class="container-fluid">
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item fs-3">
-            All Tickets
-          </li>
+      <div class="collapse navbar-collapse d-flex justify-content-between" id="navbarSupportedContent">
+        <ul class="navbar-nav ">
+          @if ($value)
+            <li class="nav-item fs-3">
+              {{ $value }}
+            </li>
+          @else
+            <li class="nav-item fs-3">
+              All Tickets
+            </li>
+          @endif
         </ul>
+          @if (auth()->user()->role == 'admin')
+          <ul class="navbar-nav">
+            <li class="navbar-item dropdown">
+              <a class="nav-link dropdown-toggle fs-5 fw-bold" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Select by Category
+              </a>
+              <ul class="dropdown-menu px-1  py-1  ">
+                <li><a class="dropdown-item card-title border border-2 border-black mb-2 rounded-3 mb-2px-2 border-opacity-75" href="{{ route('home', ['category' => 'All']) }}">
+                  All Tickets
+                  </a>
+                </li>
+                <li><a class="dropdown-item card-title border border-2 border-success rounded-3 mb-2 px-2 border-opacity-75" href="{{ route('home', ['category' => 1]) }}">
+                  Support 
+                  </a>
+                </li>
+                <li><a class="dropdown-item card-title border border-2 border-primary rounded-3 px-2 my-2 border-opacity-75" href="{{ route('home', ['category' => 2]) }}">
+                  Feedback  
+                  </a>
+                </li>
+                <li><a class="dropdown-item card-title border border-2 border-danger rounded-3 px-2 mb-0 pb-0 border-opacity-75" href="{{ route('home', ['category' => 3]) }}">
+                  Complaint
+                  </a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+          @endif
           @if(auth()->user()->role === 'user')
             <li class="nav-item d-flex align-items-center border border-secondary border-opacity-25 p-1 me-4 rounded-1">
                 <a class="nav-link fs-5 d-flex align-items-center" data-bs-toggle="modal" data-bs-target="#exampleModal" style="cursor: pointer;">
@@ -13,7 +46,7 @@
                 </a>
             </li>
           @endif
-                <img src="bell.svg" class="me-4" alt="">
+        <img src="bell.svg" class="me-4" alt="">
       </div>
     </div>
   </nav>
