@@ -18,7 +18,7 @@
         @if(auth()->user()->role === 'user')
             <x-main />
         @else
-        <x-admin-main :category="$paramValue" />        
+            <x-admin-main :category="$paramValue" />        
         @endif
     </div>
     

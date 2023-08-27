@@ -6,7 +6,7 @@
             <div class="col-md-4" style="margin-top: 8%">
                 <p class="text-wrap fs-1 fw-bold">Handling customer complaints is easy now.</p>
                 <p class="text-wrap fs-5 fw-medium">We will help you receive, respond to, and resolve customer grievances with simple solutions, and leaves you with more time for tasks that matter.</p>
-                <a href="{{ route('home') }}" class="btn btn-success btn-lg">Get Started</a>                         {{--   User will be Directed to the Home page on click of Get Started button if the user is not logged in then the user will be directed to Login page to login  --}}
+                <a href="{{ route('home', ['category' => 'All']) }}" class="btn btn-success btn-lg">Get Started</a>                         {{--   User will be Directed to the Home page on click of Get Started button if the user is not logged in then the user will be directed to Login page to login  --}}
             </div>
             <img class="col-md-5" src="complaint-management-handing.webp" alt="" width="584" height="490">            
         </div>
