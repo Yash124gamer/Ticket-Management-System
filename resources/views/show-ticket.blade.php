@@ -14,6 +14,12 @@ use App\Models\User;
 @endphp
 
 @section('content')
+<div class="ms-4 ps-4 fs-4" style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="{{ route('home') }}"   >Home</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Ticket</li>
+      </ol>
+</div>
     <div class="container mb-5">
         <div class="card" style="border-left: solid 8px {{ $ticket->category_id == 1 ? 'green' : ($ticket->category_id == 2 ? 'blue' : 'red') }}">
             <div class="card-header fs-3 fst-italic">
@@ -24,7 +30,7 @@ use App\Models\User;
             </div>
             <div class="card-footer d-flex justify-content-between">
                 @if ($adminPresent)
-                    <div data-bs-toggle="modal" data-bs-target="#exampleModal" style="cursor: pointer ; color: blue">Uploaded By -: {{ $ticket->created_at }}</div>
+                    <div data-bs-toggle="modal" data-bs-target="#exampleModal" style="cursor: pointer ; color: blue">Uploaded By -: </div>
                 @else
                     <div style="color: blue">Posted On -: {{ $ticket->created_at->format('l, M d,  h:i A') }}</div>
                 @endif
