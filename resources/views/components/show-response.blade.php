@@ -5,9 +5,9 @@
 @endphp
 
 @if ($response->count() > 0)
-    <div class="container ">
+    <div class="container mb-5">
         <div class="card ">
-            <div class="card-footer fst-italic lh-base text-capitalize fs-3">
+            <div class="card-footer fst-italic lh-base fs-5">
                 {{ $response[0]->response }}
             </div>
             <div class="card-body d-flex py-0 fs-5 fst-italic justify-content-between align-items-center">
