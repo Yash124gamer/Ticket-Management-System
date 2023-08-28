@@ -25,5 +25,7 @@ Route::get('/show-ticket',function(){
 
 Auth::routes();
 
+Route::post('/addResponse' , [App\Http\Controllers\ResponseController::class,'store'])->name('add.response');
+
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::post('/update-ticket/{id}', [App\Http\Controllers\TicketController::class, 'update'])->name('update.ticket');

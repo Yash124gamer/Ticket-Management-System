@@ -3,9 +3,11 @@
 @php
 use App\Models\Tickets;
 use App\Models\User;
+use App\Models\Response;
 
     $ticket_id = request()->query('id');    
     $ticket = Tickets::find($ticket_id);
+    $responses = Response::where('ticket_id', $ticket_id)->get();
     $adminPresent = false;
     if(auth()->user()->role == "admin"){
         $adminPresent = true;
@@ -16,7 +18,7 @@ use App\Models\User;
 @section('content')
 <div class="ms-4 ps-4 fs-4" style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
     <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="{{ route('home') }}"   >Home</a></li>
+        <li class="breadcrumb-item"><a href="{{ route('home', ['category' => 'All']) }}"   >Home</a></li>
         <li class="breadcrumb-item active" aria-current="page">Ticket</li>
       </ol>
 </div>
@@ -25,7 +27,7 @@ use App\Models\User;
             <div class="card-header fs-3 fst-italic">
                 {{ $ticket->title }}
             </div>
-            <div class="card-body fs-5">
+            <div class="card-body fs-5 lh-sm">
                 {{ $ticket->description }}
             </div>
             <div class="card-footer d-flex justify-content-between">
@@ -40,10 +42,13 @@ use App\Models\User;
             </div>
         </div>
     </div>
-    @if ($adminPresent)
+        <x-show-response :id="$ticket->id" />
+    @if ($adminPresent && $responses->count() == 0)
         <x-response :id="$ticket->id" />
     @else
-        <x-edit :category="$ticket->category_id" :ticketId="$ticket->id"/>
+        @if (auth()->user()->role == "user")
+            <x-edit :category="$ticket->category_id" :ticketId="$ticket->id"/>
+        @endif
     @endif
 @endsection
 
