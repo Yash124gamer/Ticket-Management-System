@@ -85,6 +85,7 @@
         @endif
         <script>
           setTimeout(function() {
+            if(document.getElementById('successAlert'))
               document.getElementById('successAlert').style.display = 'none';
           }, 2000); //This will Hide the alert after 2 seconds
         </script>
