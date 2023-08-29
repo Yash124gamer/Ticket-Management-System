@@ -47,6 +47,14 @@ class TicketController extends Controller
         dd("Ticket not found or other error"); // Debugging
             return redirect()->back()->with('error', 'Something Went Wrong');
     }
-    
+    public function destroy(Request $req, $id){
+        $ticket = Tickets::find($id);
+        if ($ticket) {
+            $ticket->delete();
+            return redirect()->route('home', ['category' => 'All'])->with('success', 'Ticket deleted successfully');
+        } else {
+            return redirect()->route('home', ['category' => 'All'])->with('error', 'Ticket not found');
+        }
+    }
 
 }

@@ -19,6 +19,9 @@
         <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#categoryEdit" aria-expanded="false" aria-controls="collapseExample" onclick=disable()>
             Change Category
         </button>
+        <button class="btn btn-danger" type="button"data-bs-toggle="modal" data-bs-target="#deleteModal">
+          Delete Ticket
+      </button>
     </p>
       <div class="collapse mb-2" id="collapseExample">
         <div class="container border py-2">
@@ -52,7 +55,7 @@
                 </label>
             @endif
         </div>
-
+        
         </div>
     </div>
     <div class="d-flex justify-content-center">
@@ -70,6 +73,23 @@
         <div class="modal-footer d-flex justify-content-center">
           <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
           <button type="button" class="btn btn-primary" onclick=saveData()>Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header justify-content-center">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Do You want to Delete this Ticket ?</h1>
+        </div>
+        <div class="modal-footer d-flex justify-content-center">
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Cancel</button>
+          <form action="{{ route('delete.ticket', $ticket->id) }}" method="GET">
+            @csrf
+            <button type="submit" class="btn btn-danger" >Delete</button>
+          </form>
         </div>
       </div>
     </div>
@@ -144,6 +164,5 @@
             console.error("An error occurred", error);
         });
   }
-
 
 </script>
