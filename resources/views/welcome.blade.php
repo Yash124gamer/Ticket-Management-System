@@ -22,7 +22,7 @@
 </div>
 <div class="container mt-5">
     <div class="row mx-5 d-flex justify-content-center mt-5">
-        <span class="fs-1 text-wrap fw-bold col-md-6 " style="width: auto,margin:auto">You need software that gives agents all the context they need</span>
+        <span class="fs-2 text-wrap fw-bold col-md-6 " style="width: auto,margin:auto">You need software that gives agents all the context they need</span>
         <p class="text-wrap fs-5 fw-medium d-flex justify-content-center">Support agents need a streamlined view of all this data to maximize efficiency.</p>
         <p class="text-wrap fs-5 fw-medium d-flex justify-content-center"> We will do that through our Agent Producitvity toolkit.</p>
     </div>

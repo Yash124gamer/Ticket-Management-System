@@ -46,7 +46,7 @@ use App\Models\Response;
     @if ($adminPresent && $responses->count() == 0)
         <x-response :id="$ticket->id" />
     @else
-        @if (auth()->user()->role == "user")
+        @if (auth()->user()->role == "user" && $responses->count() == 0)
             <x-edit :category="$ticket->category_id" :ticketId="$ticket->id"/>
         @endif
     @endif

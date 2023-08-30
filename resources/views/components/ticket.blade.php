@@ -2,7 +2,7 @@
     <div class="card my-3 ticket-card">
         <div class="card-header d-flex justify-content-between">
             <h4>{{ $ticket->title }}</h4>
-            <p class="fst-italic" style="color: teal">{{ $ticket->status }}</p>
+            <p class="fst-italic" style="color: {{ $ticket->status === 'open' ? 'teal' : 'red' }}">{{ $ticket->status }}</p>
         </div>
         <div class="card-body">
             @if($ticket->category_id == 1)
